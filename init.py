@@ -14,6 +14,5 @@ conn.request("GET", "/data/2.5/weather?" + params)
 res = conn.getresponse()
 data = res.read()
 
-#print(data.decode("utf-8"))
-weather = json.loads(data)
+weather = json.loads(data.decode("utf-8"))
 print(weather["weather"][0]["description"] + " " + "%.2fC" % (weather["main"]["temp"] - 273.15))
